@@ -3,6 +3,9 @@ package activity5_scope;
 public class Scope
 {
 
+    // Static activity - global variable constant (of same name)
+    final static String text = "This is 'TEXT' - a GLOBAL variable of Scope class.";
+
     public static void main(String[] args)
     {
 
@@ -15,6 +18,9 @@ public class Scope
 
         // Trying to call a variable from outside the SCOPE ... uncommenting and running will cause an error
         // System.out.println(subText);
+
+        // Call global variable
+        System.out.println( Scope.text );
 
     }
 
