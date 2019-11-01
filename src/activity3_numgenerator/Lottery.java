@@ -37,13 +37,29 @@ public class Lottery
             // IF response is a form of 'Yes', ask for the user to input and apply it to current iteration
             if (response.equals("yes"))
             {
-                System.out.println("Type Birthday #" + i);
-                lotteryNumbers[i] = s.nextInt();
+                // Ask for and store birthday number user wants to a temporary variable
+                System.out.println("\nType Birthday #" + i);
+                int birthdayNum = s.nextInt();
+
+                // IF said input is between the valid range of 1 to 31
+                if ((birthdayNum) < 31 && (birthdayNum > 0))
+                {
+                    lotteryNumbers[i] = birthdayNum;
+                    System.out.println("\n");
+                }
+                // ELSE let the user know that the number will be randomized instead
+                else
+                {
+                    System.out.println("\tInvalid number (must be 1 to 31)");
+                    System.out.println("\tRandomizing number instead...\n");
+                    lotteryNumbers[i] = (int) (Math.random() * (43 - 1) + 1);
+                }
+
             }
             // ELSE IF not, randomize current iteration's number instead
             else
             {
-                System.out.println("Number has been randomized");
+                System.out.println("\tNumber has been randomized\n");
                 lotteryNumbers[i] = (int) (Math.random() * (43 - 1) + 1);
             }
 
