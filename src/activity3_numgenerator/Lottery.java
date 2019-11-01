@@ -10,8 +10,8 @@ public class Lottery
      *
      *  TO-DO
      *
-     *  - I need to verify that the user inputs birthday numbers from 1 to 31.
-     *  - There is an error in that it ignores the IF statement and skips to the ELSE despite correct condition.
+     *  - Verify that the user inputs birthday numbers from 1 to 31.
+     *  - Fix error which ignores the IF statement and skips to the ELSE despite correct condition.
      *
      **/
 
@@ -35,7 +35,7 @@ public class Lottery
             String response = s.next();
 
             // IF response is a form of 'Yes', ask for the user to input and apply it to current iteration
-            if (response == "y")
+            if (response.equals("yes"))
             {
                 System.out.println("Type Birthday #" + i);
                 lotteryNumbers[i] = s.nextInt();
