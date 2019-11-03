@@ -1,10 +1,23 @@
-package activity3_numgenerator;
+package extra_refactorednumgen;
 
 import java.util.Arrays;
 import java.util.Scanner;
 
+/**
+ *      DESCRIPTION
+ *      This is a refactored version of the Activity 3 'Lottery' program.
+ *      It is not at all required in any of the Moodle or bonus tasks, and was done
+ *      off of my own learning.
+ *
+ *      CHANGES
+ *      - Added global variable for repeated message
+ *      - Added method to randomize number, as well as output message from global variable
+ */
+
 public class Lottery
 {
+
+    private final static String RANDOMIZED_MSG = "\tNumber has been randomized\n";
 
     public static void main(String[] args)
     {
@@ -42,19 +55,17 @@ public class Lottery
                 else
                 {
                     System.out.println("\tInvalid number (must be 1 to 31)");
-                    System.out.println("\tRandomizing number instead...\n");
-                    lotteryNumbers[i] = (int) (Math.random() * (43 - 1) + 1);
+                    Randomize(lotteryNumbers, i);
                 }
 
             }
             // ELSE IF not, randomize current iteration's number instead
             else
             {
-                System.out.println("\tNumber has been randomized\n");
-                lotteryNumbers[i] = (int) (Math.random() * (43 - 1) + 1);
+                Randomize(lotteryNumbers, i);
             }
 
-            // Increment the birthday counter and increment the iteration to continue
+            // Increment the birthday counter
             count++;
         }
 
@@ -67,6 +78,14 @@ public class Lottery
             System.out.println(lotteryNumbers[j]);
         }
 
+    }
+
+
+    // RANDOMIZE method for randomizing a number within an array
+    public static void Randomize(int[] intArray, int index)
+    {
+        intArray[index] = (int) (Math.random() * (43-1) + 1);
+        System.out.println(RANDOMIZED_MSG);
     }
 
 }
